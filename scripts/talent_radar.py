@@ -3,7 +3,7 @@
 AI人才雷达 v4 - 主搜索入口（招聘导向）
 数据源：
   - 国际来源: Semantic Scholar API / OpenAlex API / GitHub API
-  - Chinese sources: Zhihu/Weibo, accessed via web scraping tools
+  - 国内来源: 知乎/微博，通过 opencli/agent-reach 访问
 
 运行方式（必须 cd 到脚本目录）：
   cd <skill_dir>/scripts
