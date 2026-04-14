@@ -88,7 +88,7 @@ echo $SKILL_DIR
 
 > **Domestic AI team alternatives**: Top Chinese AI teams may have low Semantic Scholar coverage. Alternatives:
 > - Search GitHub orgs directly (`org:MoonshotAI`, `org:zhipuai`, etc.)
-> - Search Zhihu/Twitter for technical articles to locate authors
+> - Search Zhihu/Twitter for technical articles to locate authors (using `agent-reach` or web search)
 > - Search arXiv/papers-with-code for paper author emails (often contain institutional info)
 
 ---
@@ -105,14 +105,14 @@ echo $SKILL_DIR
 - Baoyu xp (Million-follower tech influencer): https://weibo.com/u/1727858283
 - i Lu Sanjin: https://weibo.com/u/1706699904
 
-> **Access**: Use web scraping tools or browser automation to access Zhihu/Weibo content for search, profile reading, and technical article extraction.
+> **Access**: Use `agent-reach` (xreach/xread) or browser automation to access Zhihu/Weibo content for search, profile reading, and technical article extraction. Install: `npx clawhub install agent-reach`
 
 ### Domestic Talent Search Scenarios
 
 | User says | Agent executes |
 |-----------|---------------|
-| Find Chinese LLM Zhihu influencers | Search Zhihu for "large language model AI research" |
-| Find active AI scholars on Weibo | Search Weibo for "AI large model scholar" |
+| Find Chinese LLM Zhihu influencers | Use `agent-reach` or web search: search Zhihu for "large language model AI research" |
+| Find active AI scholars on Weibo | Use `agent-reach` or web search: search Weibo for "AI large model scholar" |
 | Check Liu Zhiyuan's Zhihu profile | Visit https://www.zhihu.com/people/zibuyu9 |
 | Check Aikeke's Weibo updates | Visit https://weibo.com/u/1402400261 |
 
