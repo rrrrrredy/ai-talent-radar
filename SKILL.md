@@ -1,12 +1,13 @@
 ---
 name: ai-talent-radar
+version: 6.0.0
 description: "Recruitment-oriented AI talent search and profiling tool integrating Semantic Scholar, GitHub, and Chinese social platforms (Zhihu/Weibo). Triggers: AI talent, talent radar, find AI engineer, recruit LLM, talent profile, team background check, find RLHF researchers, find Agent researchers, domestic AI scholars. Not for: academic research-oriented analysis (use ai-talent-graph); precise Chinese scholar search (data sources are primarily English)."
 tags: [talent, recruitment, ai-engineer, academic, github, semantic-scholar]
 metadata:
   version: "V7"
 ---
 
-# AI Talent Radar V6
+# ai-talent-radar 6.0.0
 
 ## First-time Setup
 
@@ -58,10 +59,10 @@ pip install requests openpyxl
 
 ```bash
 # Go to https://github.com/settings/tokens to generate a Personal Access Token (only need public_repo read permission)
-export GITHUB_TOKEN="ghp_your_token_here"
+export GITHUB_TOKEN="YOUR_GITHUB_TOKEN"
 
 # For persistence, add to your shell profile:
-echo 'export GITHUB_TOKEN="ghp_your_token_here"' >> ~/.bashrc
+echo 'export GITHUB_TOKEN="YOUR_GITHUB_TOKEN"' >> ~/.bashrc
 ```
 
 **Step 3: Locate script directory**
@@ -157,7 +158,7 @@ python3 export_excel.py --input /tmp/talent_results.json --output ~/talent_repor
 | ImportError: No module named 'semantic_scholar' | Confirm you `cd $SKILL_DIR` before running; don't call from other directories |
 | ModuleNotFoundError: No module named 'requests' | Run `pip install requests openpyxl` |
 | GitHub API 403/rate limit | Check GITHUB_TOKEN is set; degrade to academic-only data |
-| GITHUB_TOKEN lost (after restart) | Re-export: `export GITHUB_TOKEN="ghp_..."` |
+| GITHUB_TOKEN lost (after restart) | Re-export: `export GITHUB_TOKEN="YOUR_GITHUB_TOKEN"` |
 | Semantic Scholar returns empty | Hint: No matching scholars; try English keywords; for domestic institutions try GitHub org search |
 | API timeout (30s) | Retry once; if still failing: "Data source temporarily unavailable, please retry later" |
 | GitHub Token not configured | Auto-uses unauthenticated mode; remind user: "GITHUB_TOKEN not configured, limited to 60 requests/hour" |
@@ -175,9 +176,19 @@ See `references/compliance.md` for detailed compliance terms.
 
 ---
 
+## Gotchas
+
+⚠️ **Semantic Scholar rate limit** → Free API 限制 100 req/5min。批量搜超过 10 人时必须加 1s 间隔，否则返回 429。
+⚠️ **GitHub API 无 token 限制 60 req/hr** → 搜 3 个人的 repo 就可能触顶。必须配置 GITHUB_TOKEN。
+⚠️ **中文学者覆盖不全** → Semantic Scholar 以英文论文为主，纯中文发表的学者可能搜不到。降级用 GitHub + 知乎搜索补充。
+⚠️ **GitHub token 重启后丢失** → 写入 `~/.bashrc` 持久化，不要只 export。
+⚠️ **Excel 导出超 50 条会截断** → 单次导出上限 50 条，超过需分批。
+
+---
+
 ## Changelog
 
-### V6
+### 6.0.0
 - Added X/Twitter influence data collection in candidate profiling: fetch followers, Bio, tweet count (guest token, no account needed)
 - Gotchas: added X/Twitter proxy requirement note
 
