@@ -21,7 +21,7 @@ git clone https://github.com/rrrrrredy/ai-talent-radar.git ~/.openclaw/skills/ai
 bash scripts/setup.sh
 
 # Configure GitHub Token (strongly recommended)
-export GITHUB_TOKEN="ghp_your_token_here"
+export GITHUB_TOKEN="YOUR_GITHUB_TOKEN"
 ```
 
 ## Features
