@@ -3,8 +3,6 @@ name: ai-talent-radar
 version: 6.0.0
 description: "Recruitment-oriented AI talent search and profiling tool integrating Semantic Scholar, GitHub, and Chinese social platforms (Zhihu/Weibo). Triggers: AI talent, talent radar, find AI engineer, recruit LLM, talent profile, team background check, find RLHF researchers, find Agent researchers, domestic AI scholars. Not for: academic research-oriented analysis (use ai-talent-graph); precise Chinese scholar search (data sources are primarily English)."
 tags: [talent, recruitment, ai-engineer, academic, github, semantic-scholar]
-metadata:
-  version: "V7"
 ---
 
 # ai-talent-radar 6.0.0
@@ -176,36 +174,26 @@ See `references/compliance.md` for detailed compliance terms.
 
 ---
 
-## Gotchas
-
-⚠️ **Semantic Scholar rate limit** → Free API 限制 100 req/5min。批量搜超过 10 人时必须加 1s 间隔，否则返回 429。
-⚠️ **GitHub API 无 token 限制 60 req/hr** → 搜 3 个人的 repo 就可能触顶。必须配置 GITHUB_TOKEN。
-⚠️ **中文学者覆盖不全** → Semantic Scholar 以英文论文为主，纯中文发表的学者可能搜不到。降级用 GitHub + 知乎搜索补充。
-⚠️ **GitHub token 重启后丢失** → 写入 `~/.bashrc` 持久化，不要只 export。
-⚠️ **Excel 导出超 50 条会截断** → 单次导出上限 50 条，超过需分批。
-
----
-
 ## Changelog
 
 ### 6.0.0
 - Added X/Twitter influence data collection in candidate profiling: fetch followers, Bio, tweet count (guest token, no account needed)
 - Gotchas: added X/Twitter proxy requirement note
 
-### V5
+### 5.0.0
 - Added Gotchas section (Scholar API rate limit, GitHub rate limit, regional access issues, Excel confirmation)
 - Added Hard Stop rule
 
-### V4
+### 4.0.0
 - **Clear positioning**: Explicitly recruitment-oriented, differentiated from ai-talent-graph (academic research)
 - **Added domestic data sources**: Zhihu AI scholars + Weibo AI influencers
 - **Domestic scenario mapping**: Added Zhihu/Weibo search scenarios
 
-### V3
+### 3.0.0
 - **GitHub Token persistence**: Configuration guidance for shell profile
 - **Domestic AI team alternatives**: Semantic Scholar limited coverage of Chinese institutions; added GitHub org + arXiv fallback paths
 
-### V2
+### 2.0.0
 - Integrated Semantic Scholar + GitHub dual data sources
 - Supported talent search, profiling, team analysis, candidate comparison
 - Excel export (requires user confirmation)
