@@ -1,8 +1,6 @@
 ---
 name: ai-talent-radar
-version: 6.0.0
-description: "Recruitment-oriented AI talent search and profiling tool integrating Semantic Scholar, GitHub, and Chinese social platforms (Zhihu/Weibo). Triggers: AI talent, talent radar, find AI engineer, recruit LLM, talent profile, team background check, find RLHF researchers, find Agent researchers, domestic AI scholars. Not for: academic research-oriented analysis (use ai-talent-graph); precise Chinese scholar search (data sources are primarily English)."
-tags: [talent, recruitment, ai-engineer, academic, github, semantic-scholar]
+description: 'Recruitment-oriented AI talent search and profiling tool integrating Semantic Scholar, GitHub, and Chinese social platforms (Zhihu/Weibo). Triggers: AI talent, talent radar, find AI engineer, recruit LLM, talent profile, team background check, find RLHF researchers, find Agent researchers, domestic AI scholars. Not for: academic research-oriented analysis (use ai-talent-graph); precise Chinese scholar search (data sources are primarily English).'
 ---
 
 # ai-talent-radar 6.0.0
